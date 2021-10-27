@@ -1,7 +1,3 @@
-package co.ubosque.view.style;
-
-
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -14,6 +10,12 @@ import javax.swing.SwingConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+/**
+ * This class defines the style of the field for text entry
+ * 
+ * @author https://github.com/Alejandro-prog
+ * @version: 2.0
+ */
 public class JTextPlaceHolderRound extends JTextField {
 
 	private static final long serialVersionUID = 1L;
@@ -22,15 +24,20 @@ public class JTextPlaceHolderRound extends JTextField {
 	private String placeholder = "";
 	private Color phColor = new Color(20, 20, 20);
 	private boolean band = true;
+	private Boolean border = false;
 
+	/**
+	 * Constructor method which defines the attributes of the field
+	 * 
+	 * @param Field size
+	 */
 	public JTextPlaceHolderRound(int size) {
-		
-		super(size);
 
+		super(size);
 		setOpaque(false);
 
 		setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		setSize(d);
 		setPreferredSize(d);
 		setVisible(true);
@@ -83,39 +90,65 @@ public class JTextPlaceHolderRound extends JTextField {
 		this.phColor = phColor;
 	}
 
+	/**
+	 * Method that returns the visible for the border
+	 * 
+	 * @return the placeholder
+	 */
+	public Boolean getsetBorderPainted() {
+		return border;
+	}
+
+	/**
+	 * Changing method that makes the border visible
+	 * 
+	 * @param placeholder the placeholder to set
+	 */
+	public void setBorderPainted(boolean border) {
+		this.border = border;
+	}
+
+	/**
+	 * Method that modifies the color of the placeHolder and draws the text
+	 * 
+	 * @param g Componente gráfico a modificar
+	 */
 	public void paintComponent(Graphics g) {
-		
+
 		super.paintComponent(g);
-		
+
 		// color de placeholder
-		g.setColor(new Color(phColor.getRed(), phColor.getGreen(), phColor.getBlue(), 100));
+		g.setColor(getPhColor());
 		// dibuja texto
 		g.drawString((band) ? placeholder : "", getMargin().left, (getSize().height) / 2 + getFont().getSize() / 2);
-		
+
 	}
-	
+
 	/**
-	 * Bordes redondos
-	 *  @param g the g to set
+	 * Method that draws the border of the placeHolder
 	 */
-	
 	protected void paintBorder(Graphics g) {
 
-		
-		g.setColor(getForeground());
-		g.drawRoundRect(0, 29, getWidth()-1, getHeight()-1, 15, 15);
-		
-		
+		if (this.border) {
+
+			g.setColor(getForeground());
+			g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 15, 15);
+		}
 	}
-	
+
+	/**
+	 * Method that evaluates if the coordinates are inside the shape and adjusts it
+	 * 
+	 * @param x Coordenada x
+	 * @param y Coordenada y
+	 */
 	public boolean contains(int x, int y) {
-		
+
 		if (shape == null || !shape.getBounds().equals(getBounds())) {
-			shape = new RoundRectangle2D.Float(0, 0, getWidth()-1, getHeight()-1, 15, 15);
-			
+			shape = new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, 15, 15);
+
 		}
 		return shape.contains(x, y);
 	}
-	
-	
+
 }
