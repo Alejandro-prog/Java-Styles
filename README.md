@@ -21,3 +21,21 @@ It is a series of styles applied to improve the visual environment of the compon
     add(password);
 ```
 
+**JTextPlaceHolderRound**
+
+- How to add the field
+
+```	
+    import style.JTextPlaceHolderRound;
+    public JTextPlaceHolderRound name;
+
+    name = new JTextPlaceHolderRound(15);
+    name.setBounds(90, 170, 170, 33);
+    name.setHorizontalAlignment(SwingConstants.LEFT);
+    name.setBorderPainted(false);
+    name.setForeground(Color.white);
+    name.setPhColor(new Color(255, 255, 255, 90));
+    name.setOpaque(false);
+    name.setPlaceholder("Users Name");
+    add(name);
+```
