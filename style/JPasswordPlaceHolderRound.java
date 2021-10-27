@@ -1,6 +1,3 @@
-//http://www.jc-mouse.net/java/anade-un-placeholder-a-un-jtextfield
-package co.ubosque.view.style;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -14,13 +11,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 /**
- * Esta clase define el estilo del campo para el ingreso de contraseña
+ * This class defines the style of the field for password entry
  * 
- * @author Fabian A. Gonzalez M.
- * @author Maruan E. Arias C.
- * @author John A. Bedoya R.
- * @author Antonio J. Mata R.
- * @version: 1.0
+ * @author https://github.com/Alejandro-prog
+ * @version: 2.0
  */
 public class JPasswordPlaceHolderRound extends JPasswordField {
 
@@ -29,21 +23,20 @@ public class JPasswordPlaceHolderRound extends JPasswordField {
 	private Shape shape;
 	private Dimension d = new Dimension(200, 32);
 	private String placeholder = "";
+	private Boolean border = false;
 	private Color phColor = new Color(255, 255, 255);
 	private boolean band = true;
-
 	/**
-	 * Método constructor el cual define los atributos del campo
+	 * Constructor method which defines the attributes of the field
 	 * 
-	 * @param size Tamaño del campo
+	 * @param Field size
 	 */
 	public JPasswordPlaceHolderRound(int size) {
+		
 		super(size);
-
+		
 		setOpaque(false);
-
 		setHorizontalAlignment(SwingConstants.LEFT);
-
 		setSize(d);
 		setPreferredSize(d);
 		setVisible(true);
@@ -69,7 +62,7 @@ public class JPasswordPlaceHolderRound extends JPasswordField {
 	}
 
 	/**
-	 * Método que retorna el texto a mostrar en el campo
+	 * Method that returns the text to display in the field
 	 * 
 	 * @return the placeholder
 	 */
@@ -78,16 +71,35 @@ public class JPasswordPlaceHolderRound extends JPasswordField {
 	}
 
 	/**
-	 * Método que cambia el valor del atributo placeHolder
+	 * Method that changes the value of the placeHolder attribute
 	 * 
 	 * @param placeholder the placeholder to set
 	 */
 	public void setPlaceholder(String placeholder) {
 		this.placeholder = placeholder;
 	}
+	
+	/**
+	 * Method that returns the visible for the border
+	 * 
+	 * @return the placeholder
+	 */
+	public Boolean getsetBorderPainted() {
+		return border;
+	}
 
 	/**
-	 * Método que retorna el valor del atributo phColor
+	 * Changing method that makes the border visible
+	 * 
+	 * @param placeholder the placeholder to set
+	 */
+	public void setBorderPainted(boolean border) {
+		this.border = border;
+	}
+
+
+	/**
+	 * Method that returns the value of the phColor attribute
 	 * 
 	 * @return the phColor
 	 */
@@ -95,39 +107,47 @@ public class JPasswordPlaceHolderRound extends JPasswordField {
 		return phColor;
 	}
 
+
 	/**
-	 * Método cambia el valor del atributo phColor
+	 * Method changes the value of the phColor attribute
 	 * 
 	 * @param phColor the phColor to set
 	 */
 	public void setPhColor(Color phColor) {
 		this.phColor = phColor;
 	}
+	
 
 	/**
-	 * Método que modifica el color el placeHolder y dibuja el texto
+	 * Method that modifies the color of the placeHolder and draws the text
 	 * 
-	 * @param g Componente gráfico a modificar
+	 * @param g Componente grÃ¡fico a modificar
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
 		// color de placeholder
-		g.setColor(new Color(phColor.getRed(), phColor.getGreen(), phColor.getBlue(), 90));
+		g.setColor(getPhColor());
 		// dibuja texto
 		g.drawString((band) ? placeholder : "", getMargin().left, (getSize().height) / 2 + getFont().getSize() / 2);
 
 	}
 
 	/**
-	 * Método que dibuja el borde del placeHolder
+	 * Method that draws the border of the placeHolder
 	 */
 	protected void paintBorder(Graphics g) {
-//		g.setColor(getForeground());
-//		g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
+		
+		if(this.border) {
+			
+			g.setColor(getForeground());
+			g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
+		}
 	}
+		
 
 	/**
-	 * Método que evalua si las coordenadas están dentro de la forma y la ajusta
+	 * Method that evaluates if the coordinates are inside the shape and adjusts it
 	 * 
 	 * @param x Coordenada x
 	 * @param y Coordenada y
