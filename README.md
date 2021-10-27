@@ -1,4 +1,4 @@
-[![Downloads](https://img.shields.io/npm/dm/eslint.svg)](https://github.com/Alejandro-prog/Java-Styles.git) 
+[![Downloads](https://img.shields.io/npm/dm/eslint.svg)](2) 
 
 # Java-Styles
 It is a series of styles applied to improve the visual environment of the components (inputs and buttons)
