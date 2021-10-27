@@ -5,7 +5,7 @@ It is a series of styles applied to improve the visual environment of the compon
 How to add the button
 
 ```	
-    import view.style.JPasswordPlaceHolderRound;
+    import style.JPasswordPlaceHolderRound;
     public JPasswordPlaceHolderRound password;
 
 
