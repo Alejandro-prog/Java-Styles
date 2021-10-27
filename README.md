@@ -10,13 +10,13 @@ How to add the button
 
 
     password = new JPasswordPlaceHolderRound(15);
-		password.setBounds(90, 220, 170, 33);
-		password.setHorizontalAlignment(SwingConstants.LEFT);
-		password.setBorderPainted(false);
-		password.setForeground(Color.white);
-		password.setPhColor(new Color(255, 255, 255, 90));
-		password.setPlaceholder("Password");
-		password.setOpaque(false);
-		add(password);
+    password.setBounds(90, 220, 170, 33);
+    password.setHorizontalAlignment(SwingConstants.LEFT);
+    password.setBorderPainted(false);
+    password.setForeground(Color.white);
+    password.setPhColor(new Color(255, 255, 255, 90));
+    password.setPlaceholder("Password");
+    password.setOpaque(false);
+    add(password);
 ```
 
