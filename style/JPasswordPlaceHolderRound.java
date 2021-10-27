@@ -126,9 +126,9 @@ public class JPasswordPlaceHolderRound extends JPasswordField {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		// color de placeholder
+		// placeholder color
 		g.setColor(getPhColor());
-		// dibuja texto
+		// draw text
 		g.drawString((band) ? placeholder : "", getMargin().left, (getSize().height) / 2 + getFont().getSize() / 2);
 
 	}
@@ -149,8 +149,8 @@ public class JPasswordPlaceHolderRound extends JPasswordField {
 	/**
 	 * Method that evaluates if the coordinates are inside the shape and adjusts it
 	 * 
-	 * @param x Coordenada x
-	 * @param y Coordenada y
+	 * @param x coordinate x
+	 * @param y coordinate y
 	 */
 	public boolean contains(int x, int y) {
 		if (shape == null || !shape.getBounds().equals(getBounds())) {
